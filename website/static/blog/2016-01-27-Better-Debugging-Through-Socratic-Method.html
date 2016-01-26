@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<!--#set var = "posttitle" value = "Better Debugging Through the Socratic Method" -->
+<!--#set var = "postdate" value = "January 27th, 2016" -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/favicon.ico">
+
+	<title>Carl Myers' Blog - <!--#echo var = posttitle --></title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/bootstrap/css/theme.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines!
+    <script src="../../assets/js/ie8-responsive-file-warning.js"></script>
+    <script src="bootstrap/js/ie-emulation-modes-warning.js"></script>
+    -->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body role="document">
+
+	<!-- include the nav bar -->
+	<!--#set var = "page" value = "blog" -->
+	<!--#include file="/nav.html" -->
+
+    <div class="container theme-showcase" role="main">
+
+      <div>
+
+<h1><!--#echo var = "posttitle" --></h1>
+<h2><!--#echo var = "postdate" --></h2>
+<p>
+From personal experience, and from observing others, I think many engineers are
+disposed to go through the various (now mostly debunked) "stages of grief",
+when facing a tough debugging challenge, or when working on a feature or bug
+which is particularly tough or confusing.  Here is what my cubicle-neighbors
+hear at least a few times a week:
+<ul>
+    <li>Disbelief - "what?  Run it again, see if it still doesn't work"</li>
+    <li>Anger - "Why is this @#%@# thing not working?  It worked yesterday!  I didn't even change anything major!"</li>
+    <li>Bargaining - "Maybe if I just revert my latest commit... maybe if I do a build clean..."</li>
+    <li>Depression - "All is lost.  These results are impossible.  This doesn't make any sense.  I hate my life."</li>
+    <li>Acceptance - "It's going to be ok.  If we slip a day or two, my manager will understand.  Nothing is impossible.  Computers do what you tell them."</li>
+</ul>
+In fact, one of my favorite catch phrases, "<a
+href="2015-05-04-Telling-Computers-What-To-Do.html">Computers do what you tell
+them</a>" is a thinly veiled attempt to move myself or others along to the last
+stage more quickly.
+</p><p>
+Why is this observation useful?  Because debugging is hard, but using the right
+approach can make it easier.  It is very difficult to use the right approach
+from a state of disbelief, anger, bargaining, or depression.  Computer Science
+is much like any other STEM field, it relies heavily on the scientific method.
+The code you write is a hypothesis, and a functioning program is your
+successful experiment supporting that hypothesis.  When your program
+misbehaves, it is like a negative result - something about either your
+hypothesis or your experiment is mistaken.  To understand that requires belief
+revision, and that is where the Socratic Method comes in.
+</p><p>
+The Socratic Method is a dialog (possibly with yourself) with the goal of
+finding contradictions that follow from your hypothesis (thus, weakening it, or
+allowing you to produce a stronger, more correct hypothesis).  It is the core
+of the scientific method, named for Socrates, and attributed to him by
+Aristotle, a later protégé of his teachings.
+</p><p>
+Let's say I wrote the following lines of code:
+<pre>
+    Integer[] numArray = { 1, 2, 3 };
+    ImmutableList&lt;Integer&gt; nums = ImmutableList.of(numArray);
+</pre>
+This relatively simple code looks like it ought to work, unless you are a guava
+expert you might not see the mistake.  When it inevitably fails to compile
+(thanks, strict type checking!) the error message tells you exactly what is wrong, but not necessarily how to fix it.
+
+<pre>
+    Type mismatch: cannot convert from ImmutableList&lt;Integer[]&gt; to ImmutableList&lt;Integer&gt;
+</pre>
+</p><p>
+Instead of bashing our head against this, we can have a socratic dialoge with
+ourselves.  First, a hypothesis: "ImmutableList.of(numArray) takes an array of
+integers and converts it to an immutable list of integers."  How could this
+statement be wrong?  One way it could be wrong is it could be returning some
+other type besides an immutable list of integers - my assumption about how the
+API works could be mistaken.  How do we test this?  In Java, we can do
+something like this:
+
+<pre>
+    Integer[] numArray = { 1, 2, 3 };
+    System.out.println(String.valueOf(ImmutableList.of(numArray)));
+</pre>
+
+What does it print out?
+
+<pre>
+    [[Ljava.lang.Integer;@2d38eb89]
+</pre>
+
+In case you aren't a Java expert either, this is what the Object.toString() method prints for an ImmutableList&lt;Integer[]&gt;.  For example, this code:
+<pre>
+    System.out.println(String.valueOf(ImmutableList.of(numArray)));
+    System.out.println(String.valueOf(numArray));
+    System.out.println(String.valueOf(ImmutableList.of(1, 2, 3)));
+</pre>
+prints out this:
+<pre>
+    [[Ljava.lang.Integer;@2d38eb89]
+    [Ljava.lang.Integer;@2d38eb89
+    [1, 2, 3]
+</pre>
+</p><p>
+The list's "toString()" method prints out a set of brackets and comma-separated
+values, and an integer array prints out a single starting bracket followed by
+"L" and the java type of the array, so we can see that the type returned by the
+ImmutableList.of() call is in fact a list of Integer arrays, not a list of
+integers.  The reason the API is designed this way is that
+ImmutableList.of(numArray) could mean the user wants to turn numArray into a
+list, but it could also mean they want to make a list whose first item is an
+array of integers.  The ImmutableList API includes ImmutableList.copyOf() for
+this exact reason, to distinguish between these cases.  The corrected code is:
+<pre>
+    Integer[] numArray = { 1, 2, 3 };
+    ImmutableList&lt;Integer&gt; nums = ImmutableList.copyOf(numArray);
+</pre>
+</p><p>
+Now it compiles and works correctly!  In essence, we "asked the computer
+questions" such as "what is the return type of this call" and "what does the
+expected return type look like" to help convince ourselves our code was correct
+- or discover how it was mistaken.  The key step here, as always, was figuring
+out which questions to ask.  This is also the hardest part of the Socratic
+Method when applied in philosophy or debate as well.  It isn't always obvious
+what questions will lead to a "contradiction", but that is what you are looking
+for.  Start with the most obvious things but keep going.  "When you have
+exhausted all plausible explanations, whatever remains, no matter how
+improbable, must contain the truth".  In computer science, you generally go
+through the list in this order:
+<ul>
+    <li>There is a typo in my code</li>
+    <li>There is a bug in my code</li>
+    <li>There is a bug in my algorithm</li>
+    <li>My code or algorithm assumes something untrue</li>
+    <li>There is a bug in some other code I depend upon</li>
+    <li>There is a bug in the operating system, web browser, or software elsewhere in the stack</li>
+    <li>There is a bug in the hardware itself - or the hardware has gone bad</li>
+    <li>Cosmic Rays / Electrical Interference / Supernatural Intervention</li>
+</ul>
+Use these "ways I might be mistaken" to help form the questions you should ask
+of yourself.  For the earlier ones, sometimes you can convince yourself that
+isn't how you are mistaken by simple inspection ("I double-checked, there are
+no typos").  For more difficult or obscure "ways to be wrong", such as a bug in
+your algorithm, you might need to produce a simplified reproduction of the
+error, or write a suite of tests to exercise the code to convince yourself it
+ought to work.
+</p><p>
+You don't start blaming cosmic rays until you are damn sure you have eliminated
+with a high degree of certainty every single item above it.  This is how
+science figures out why things happen (<a
+href="http://en.wikipedia.org/wiki/Occam%27s_razor">Occam's Razor</a>), and
+this is how Computer Scientists figure out why their code doesn't work (use
+Occam's Razor to <a href="http://en.wiktionary.org/wiki/yak shaving">Shave the
+Yak</a>).
+</p>
+      </div>
+
+
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/bootstrap/js/docs.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="/bootstrap/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
