@@ -45,7 +45,7 @@
 <h1><!--#echo var = "posttitle" --></h1>
 <h2><!--#echo var = "postdate" --></h2>
 <p>
-One of my favorite taglines or sayings is "I tell computers what to do for a
+One of my favorite sayings is "I tell computers what to do for a
 living", and "Computers do what you tell them".  Most non-technical folks find
 these sayings funny or quaint, but they mean something very specific and
 important.  When a user says "the computer deleted my file!" there are only two
@@ -53,7 +53,9 @@ thinsgs they can mean: "I told my computer to delete my file" or "someone else
 told my computer to delete my file".  Saying "Computers do what you tell them"
 is reminding even the most technical people that computers are (with very few
 exceptions) deterministic, predictable, and reliable.  Which means when they
-don't do what you expect, it's probably your own fault.
+don't do what you expect, it is not only likely to be your own fault, but
+absolutely your power to fix it.  Always.  Because computers do what you tell
+them.
 </p><p>
 Of course, the point isn't to provide apologetics for why today, after 60+
 years of the field of computer science existing, it is still so very hard to
@@ -63,15 +65,22 @@ junior engineer says "It won't do X" or "I can't make it do X" what they mean
 is "something is going on that I don't understand" - but you CAN understand it
 if you can figure out what questions to ask, and how to ask them.  You don't
 have to ask your boss or your mentor or your technical support line - you can
-ask your computer.  Presumably, it knows.
+ask your computer.  Presumably, it knows.  As we experience "progress", and
+experience increasingly complex hardware running increasingly complex operating
+systems running increasingly complex application stacks written in increasingly
+complex higher-level programming languages, our understanding of the computer
+becomes more and more opaque, confusing, detached, and mysterious.  We must
+fight that inaccurate view, however, because underneath that complexity still
+beats the 3-billion-times-per-second frequency of a deterministic, finite-state
+machine that would have made Alan Turing proud.
 </p><p>
 Much like "wrong answers" on an essay question in English class, there are
-uncountably many ways a computer might break your expectations and fail to do
-what you think it should.  But almost all of these, in retrospect, seem
-obvious.  Once you know that "one little thing", correcting the problem is
-easy.  But how do you find out the "one little thing"?  That is what separates
-the good engineers from the great ones, and what contributes to those few who
-are 10x or 100x engineers.
+uncountably many ways a computer might break your expectations and manifest an
+apparent failure to do what you think it should.  There are a quite finite
+number of things, however, that could be the underlying cause, and narrowing it
+down is the first step to fixing it.  Figuring out that underlying cause,
+quickly and methodically, is what separates the good engineers from the great
+ones, and what contributes to those few who are 10x or 100x engineers.
 </p><p>
 In the olden times, everything about a computer was laid bare, and your typical
 computer operator could describe the state of every register and exactly what
@@ -83,26 +92,26 @@ me pictures of cats falling into water and looking pretty unhappy about it, but
 I am grateful that it works.  Somehow, all the registers go from random states
 of not having enough electrons, to an appropriate, deterministic state where the
 completely non-physical emergent phenomenon we call an "operating system" can
-emerge from the chaos.  I also don't know how my operating system works, but
-since I use Linux, which is open-source, at least I can *look* at the code and
-try to figure it out.  "One of these days..." I always say.
+birth itself from the chaos.  I also don't know exactly how my operating system
+works, but since I use Linux, which is open-source, at least I can *look* at
+the code and try to figure it out.  "One of these days..." I always say... and
+that is just one layer.  You probably don't know how your hard disk works.  You
+probably don't know how your keyboard delivers I/O to your OS.  You probably
+don't know how your CPU manages processes or memory.  You probably don't know
+how your kernel's network stack delivers requests to and from applications like
+your web browser.  You probably don't know how the video website's client-side
+code makes continuous requests to refill its buffer with video as it plays, so
+the cat falls gracefully into the water and does not stutter.
 </p><p>
-Oh, but there is more!  Because the operating system runs a host of tools in
-"userspace", which are not really part of it but without which a computer can't
-really do any of those critical cat-related things we talked about earlier.
-Again, for me at least, I can view all of the source of how they accomplish
-that - but I don't.   I also don't know how my networking stack works.  I'm not
-sure how my hard disk writes magnetic 1s and 0s to the platter, complete with
-error correction.  I'm not quite sure how my video card tells my monitor which
-of the 1960x1280 pixels to turn on and what colors to show for each one, 60
-times per second - but it does.  Somehow.  This is why people personify
-computers.  This is why people think "they" do "things" to "us".  You can no
-more understand everything about your computer than you can know the state of
-every neuron in your own brain (how would that work?  Think about it).  
+This is why people personify computers.  This is why people think "they" do
+"things" to "us".  Today, a single person trying to understand everything about
+their computer seems more like a person trying to know the state of every
+neuron in a living brain (how would that work?  Think about it).  
 </p><p>
-So, back to the 10x engineer.  How do they always seem to know?  How do they
-run circles around the rest of us, and just <b>get so much done</b>?  They ask
-the right questions, and they ask it of the right entity - their computer.
+I know people who I consider to be 10x engineers.  Their talent amazes me.  How
+do they always seem to know?  How do they run circles around the rest of us,
+and just <b>get so much done</b>?  From my experience, my guess is that they
+ask the right questions, and they ask it of the right entity - their computer.
 They (often) don't settle on shoving random print statements into code - they
 lay the entire thing bare with a debugger.  They read <b>and understand</b>
 every line of code between the moment they press "enter", and the moment the
@@ -123,13 +132,14 @@ the one who is listening, and asking the right questions.  Have you read the
 logs?  What versions of the software are you using?  What has changed since it
 worked last?  Can you examine the source code?  Can you examine the state of
 the memory?  Does it fail deterministically?  If not, can you detect a pattern
-in the failure?  Maybe you need to invest some serious time to answer some of
-these questions.  Maybe you need to write a debugger or disassembler.  Maybe
-you even need to go learn assembly, or Java bytecode.  Your boss should be
-happy to "pay" you for your time in these endeavours, because the time you
-spend today writing these tools or learning how these tools work, instead of
-"jiggling it until it works", is paid back to your and your employer tenfold,
-or even a hundred fold, and those are dividends worth having.
+in the failure?  Can you produce a simplified reproduction of the bug?  Maybe
+you need to invest some serious time to answer some of these questions.  Maybe
+you need to write a debugger or disassembler.  Maybe you even need to go learn
+assembly, or Java bytecode.  Your boss should be happy to "pay" you for your
+time in these endeavours, because the time you spend today writing these tools
+or learning how these tools work, instead of "jiggling it until it works", is
+paid back to your and your employer tenfold, or even a hundred fold, and those
+are dividends worth having.
 </p>
       </div>
 
