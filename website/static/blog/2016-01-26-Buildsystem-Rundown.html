@@ -46,6 +46,12 @@
 <h1><!--#echo var = "posttitle" --></h1>
 <h2><!--#echo var = "postdate" --></h2>
 <p>
+<b>Note from the editor:</b>  This blog post is a living document.  In it, I
+will try to discuss popular (and unpopular) build tools, and their benefits and
+drawbacks.  In the interest of not delaying it forever, I am posting it in this
+not-yet-complete form, and will fill in more details for more build tools as I
+find time to do so.
+</p><p>
 There are many specializations in the field of software engineering.  There are
 those who specialize in machine learning, in computational linguistics, in
 distributed systems, in reliable networks, or in massive-scale systems.  These
@@ -58,22 +64,23 @@ deliver value and solve difficult problems, you are not talking about software
 simple enough that you can run <code>javac -classpath Foo.java</code> by hand.
 How do you solve a problem in software that is too big to run by hand?  You
 write code to do it, of course.  It is from this realization that Make was
-born.  Originally released in 1977, today many derivatives exist (such as <a
-href="https://www.gnu.org/software/make/">GNU Make</a>).
+born.
 </p>
 <h3>GNU Make</h3>
 <p>
-Today, even after almost 4 decades, a suprising plethora of software builds
-using GNU Make or some other Make variant.  The key concepts for Make are
-simple - you have inputs and outputs, outputs are targets you want to build,
-inputs are the thing you need to build those outputs, and the output of one
-process can be the input of some other process.  This alone is complex enough
-to describe a "Directed, Acyclic Graph" (DAG) of tasks and their dependencies,
-sort them into a topological ordering, and then execute them, possibly in
-parallel.  Make can use filesystem modification times to detect whether any
-inputs are "newer" than an output, meaning the output needs to be rebuilt, or
-if it can skip building, allowing incremental builds.  Yes, people were doing
-incremental builds 40 years ago.  No shit.  Really.
+Originally released in 1977, today many derivatives exist (such as <a
+href="https://www.gnu.org/software/make/">GNU Make</a>).  Today, even after
+almost 4 decades, a plethora of software builds using GNU Make or some other
+Make variant.  The key concepts for Make are simple - you have inputs and
+outputs, outputs are targets you want to build, inputs are the thing you need to
+build those outputs, and the output of one process can be the input of some
+other process.  This alone is complex enough to describe a "Directed, Acyclic
+Graph" (DAG) of tasks and their dependencies, sort them into a topological
+ordering, and then execute them, possibly in parallel.  Make can use filesystem
+modification times to detect whether any inputs are "newer" than an output,
+meaning the output needs to be rebuilt, or if it can skip building, allowing
+incremental builds.  Yes, people were doing incremental builds 40 years ago.  No
+shit.  Really.
 </p><p>
 <h4>The Good</h4>
 <ul>
@@ -98,7 +105,7 @@ incremental builds 40 years ago.  No shit.  Really.
 <h4>Known Offenders</h4>
 <ul>
     <li>The Linux Kernel and probably 99% of the GNU Userspace tools build using GNU Make</li>
-    <li>Amazon's massive propretary, internal build system used Make to generate perl which actually ran the build circa 2009.  My understanding is that this is no longer true, but I have no firsthand knowledge anymore.</li>
+    <li>Amazon's massive propretary, internal build system used Perl scripts to generate makefiles which actually ran the build circa 2009.  My understanding is that this is no longer true, but I have no firsthand knowledge anymore.</li>
 </ul>
 </p>
 <h3>Apache Ant</h3>
@@ -138,7 +145,7 @@ Possibly related.  I'm just sayin'.
 <h4>Known Offenders</h4>
 <ul>
     <li>Many large Java projects are built using ANT, and little else.  The original case it was written for was to build Tomcat after its open-sourcing.</li>
-    <li>Apache Ivy - this external dependency manager can be shoved into Ant (like ant contrib, see other comments about classpath disasters) to give you real dependency management (TM).  Sorta.  It also builds using Ant, of course.</li>
+    <li>Apache Ivy - this external dependency manager can be shoved into Ant (like ant contrib, see other comments about classpath disasters) to give you Real Dependency Management (TM).  Sorta.  It also builds using Ant, of course.</li>
 </ul>
 </p>
 <h3>Maven</h3>
@@ -196,7 +203,6 @@ responsible for much of the success Java has enjoyed between 2004 and now.
     <li>Maven's error messages are TERRIBLE - It lies to you</li>
     <li>Again, Creating new "rules" a la Make cannot be done inline, you need to write a Maven plugin and compile it</li>
     <li>Again, like Make, there is no easy way to test xml "code", it either works or it doesn't</li>
-    <li>
 </ul>
 <h4>The Ugly</h4>
 <ul>
@@ -204,6 +210,7 @@ responsible for much of the success Java has enjoyed between 2004 and now.
     <li>If you can fathom it, properties are almost WORSE than Ant.  You cannot easily set properties dynamically from environment, they have to be passed in via command line parameters</li>
     <li>Newer versions of Maven have had features <b>intentionally removed</b> because "that is the wrong way to do it" or "you shouldn't be doing that in your build"</li>
     <li>Both Maven 2 and Maven 3 are in common use across many projects but most projects only work with one, or the other - Maven does not bootstrap itself or control the dependency on itself at all</li>
+    <li>People have written extensively on the value of Internal Reprogrammability, frequently using Maven as the canonical example of <a href="http://nealford.com/memeagora/2013/01/22/why_everyone_eventually_hates_maven.html">how to fail at it</a>.
 </ul>
 <h4>Known Offenders</h4>
 <ul>
@@ -214,13 +221,14 @@ responsible for much of the success Java has enjoyed between 2004 and now.
 
 <h3>Gradle</h3>
 <p>
-Released in 2007, Gradle is finally a build tool that doesn't completely suck.
-I mean, it did in 2007, probably, but Gradle was created with a mission and
-supported by a services company and an open source community together, it has
-accomplished more than any other open source build tool in popular use.  Hans
-Dockter is the CEO of Gradleware, Gradle's strongest voice of support, and a
-very smart guy behind the demand that we as an industry deserve better build
-tools which I can't agree with more.
+Released in 2007, <a href="https://gradle.org/">Gradle</a> is finally a build
+tool that doesn't completely suck.  I mean, it did in 2007, probably, but Gradle
+was created with a mission and supported by a services company and an open
+source community together, it has accomplished more than any other open source
+build tool in popular use.  Hans Dockter is the CEO of Gradleware, Gradle's
+strongest voice of support, and a very smart guy behind the demand that we as an
+industry deserve better build tools, a stance I agree with and care deeply
+about.
 </p><p>
 Gradle's mission is to be a reliable, powerful, platform-agnostic tool for
 building and testing projects large and small, using any language/technology
@@ -245,7 +253,7 @@ apply plugin: 'java'
 </pre>
 Yeah, you aren't missing anything, that's it!  That alone gives you test
 targets, compile targets, publish targets, the works.  It gives you incremental
-builds (doing an up-to-date check of your source files) and undesrtands that
+builds (doing an up-to-date check of your source files) and understands that
 source and resources goes into your jar.  With a few more lines, you can pull
 in dependencies from search.maven.org just like you would with Maven or Ant +
 Ivy.  But wait, there's more!
@@ -253,16 +261,16 @@ Ivy.  But wait, there's more!
 Gradle, unlike any other build tool we have thus far discussed, has a
 "bootstrap" step.  Using a minimal jar you check in next to your project,
 gradle can download itself - and not just any version of itself, but a specific
-version of itself you tell it to - and use that to run the build.  In this way,
-Gradle is the first build tool in common use (TODO: apologies to SBT?) to
-properly bootstrap itself and control its own dependency.  A new version of
+version of itself you tell it to use - and it uses that to run the build.  In
+this way, Gradle is the first build tool in common use (TODO: apologies to SBT?)
+to properly bootstrap itself and control its own dependency.  A new version of
 Gradle will never be released causing hundreds or thousands of projects to
 break, becasue their bootstrapper will continue to fetch the known-working
-version until someone tells it to upgrade.  THIS is how build tools should
-work, ladies and gentleman.  The only dependency Gradle still has is on Java
-itself (you need a compatible jdk around to invoke gradle, even the
+version until someone tells it to upgrade.  <b>This</b> is how build tools
+should work, ladies and gentleman.  The only dependency Gradle still has is on
+Java itself (you need a compatible JDE around to invoke gradle, even the
 bootstrapper).  Breaks can still be caused by incompatible Java versions, but
-that is a MUCH less common problem, and one which is MUCH easier to fix.
+that is a much less common problem, and one which is much easier to fix.
 </p><p>
 <h4>The Good</h4>
 <ul>
@@ -276,7 +284,7 @@ that is a MUCH less common problem, and one which is MUCH easier to fix.
 </ul>
 <h4>The Bad</h4>
 <ul>
-    <li>Groovy, the main language build.gradle files tend to be in, is a duck-typed and interpreted language so errors are often non-obvious and difficult for the compiler to report - also, more likely to occur at runtime instead of compile time</li>
+    <li>Groovy, the main language build.gradle files tend to be in, is a duck-typed and interpreted language so errors are often non-obvious and difficult for the compiler to report - and the groovy compiler/interpreter is pretty shitty at error reporting.</li>
     <li>Gradle is sloooow - because build.gradle files must be interpreted, and for lage projects, this might mean reading in and building the configuration data structures for hundreds of projects - Gradle can be very slow on startup.  This is partially mitigated by the "Gradle Daemon", which caches configuration information and avoids JVM startup time at the expense of sometimes serving stale or incorrect configuration or artifacts (up to you if that is an acceptable tradeoff or not)</li>
 </ul>
 <h4>The Ugly</h4>
@@ -291,10 +299,10 @@ that is a MUCH less common problem, and one which is MUCH easier to fix.
 </ul>
 </p>
 
-<h3>GO (Google's golang)</h3>
+<h3>TODO: GO (Google's golang)</h3>
 <p>
 While Gradle was still in its infancy in 2007, somewhere in the Googleplex,
-pioneers of computer sciecne were stirring.  Google engineers Robert Griesemer,
+pioneers of computer science were stirring.  Google engineers Robert Griesemer,
 Robert Pike, and Ken Thompson (the later two of Bell Labs fame) birthed the Go
 programming language, although it wouldn't be released to the world until 2009.
 With it came the go build system, which has some interesting features.
@@ -308,8 +316,6 @@ external or open source projects which need to control their dependencies, is
 to fetch and check in static versions of those dependencies.  Updating then
 becomes a terrible mess.  Some folks in the Go community decided this was a
 problem and tried to create an alternative build tool, called godeps.
-</p><p>
-TODO: More info here
 </p><p>
 
 <h4>The Good</h4>
@@ -463,12 +469,13 @@ change someone makes is tested throughout the entire development ecosystem.
 There is a lot more to write about QBT, but hopefully this quick look at QBT and many other build systems will put into context what QBT can and cannot do for you.
 </p><p>
 <h3>Sir Not Appearing in this Blog</h3>
-Honorable mentions:
+Honorable mentions (and possible future targets) include:
 <ul>
     <li>SBT</li>
     <li>npm</li>
     <li>Grunt</li>
-    <li></li>
+    <li>Rake</li>
+    <li>Pants</li>
 </p><p>
 </p>
       </div>
