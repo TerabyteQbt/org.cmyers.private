@@ -1,0 +1,49 @@
+I hereby claim:
+
+  * I am an admin of https://cmyers.org
+  * I am cmyers (https://keybase.io/cmyers) on keybase.
+  * I have a public key ASCT84vcvmznOocwsPYL6CWy2D3MmIoKNQ83Fml_gnSCKgo
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "0101a34179c90cea138ad3398a9f69db41e9d1400977f76ad03a8d2d3e7e762e837a0a",
+            "host": "keybase.io",
+            "kid": "012093f38bdcbe6ce73a8730b0f60be825b2d83dcc988a0a350f3716697f8274822a0a",
+            "uid": "a2c25ee8a833f81d93c9e021d1afe019",
+            "username": "cmyers"
+        },
+        "service": {
+            "hostname": "cmyers.org",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "client": {
+        "name": "keybase.io go client",
+        "version": "1.0.15"
+    },
+    "ctime": 1460585694,
+    "expire_in": 504576000,
+    "merkle_root": {
+        "ctime": 1460585629,
+        "hash": "646258efaf463cb171f9e59a62442d6b1dbd706a29fc65a06e35c0ac54f65f5e4e2046fc5a12ee42e384d5217ff5ef97f8784d6a7423fd51fac1329bb2b156c5",
+        "seqno": 441689
+    },
+    "prev": "13161011c06e131ace8149d28b956adde91f1518766bf5a9a0f739dd0962779d",
+    "seqno": 9,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+g6Rib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgk/OL3L5s5zqHMLD2C+glstg9zJiKCjUPNxZpf4J0gioKp3BheWxvYWTFAvB7ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTAxYTM0MTc5YzkwY2VhMTM4YWQzMzk4YTlmNjlkYjQxZTlkMTQwMDk3N2Y3NmFkMDNhOGQyZDNlN2U3NjJlODM3YTBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwOTNmMzhiZGNiZTZjZTczYTg3MzBiMGY2MGJlODI1YjJkODNkY2M5ODhhMGEzNTBmMzcxNjY5N2Y4Mjc0ODIyYTBhIiwidWlkIjoiYTJjMjVlZThhODMzZjgxZDkzYzllMDIxZDFhZmUwMTkiLCJ1c2VybmFtZSI6ImNteWVycyJ9LCJzZXJ2aWNlIjp7Imhvc3RuYW1lIjoiY215ZXJzLm9yZyIsInByb3RvY29sIjoiaHR0cHM6In0sInR5cGUiOiJ3ZWJfc2VydmljZV9iaW5kaW5nIiwidmVyc2lvbiI6MX0sImNsaWVudCI6eyJuYW1lIjoia2V5YmFzZS5pbyBnbyBjbGllbnQiLCJ2ZXJzaW9uIjoiMS4wLjE1In0sImN0aW1lIjoxNDYwNTg1Njk0LCJleHBpcmVfaW4iOjUwNDU3NjAwMCwibWVya2xlX3Jvb3QiOnsiY3RpbWUiOjE0NjA1ODU2MjksImhhc2giOiI2NDYyNThlZmFmNDYzY2IxNzFmOWU1OWE2MjQ0MmQ2YjFkYmQ3MDZhMjlmYzY1YTA2ZTM1YzBhYzU0ZjY1ZjVlNGUyMDQ2ZmM1YTEyZWU0MmUzODRkNTIxN2ZmNWVmOTdmODc4NGQ2YTc0MjNmZDUxZmFjMTMyOWJiMmIxNTZjNSIsInNlcW5vIjo0NDE2ODl9LCJwcmV2IjoiMTMxNjEwMTFjMDZlMTMxYWNlODE0OWQyOGI5NTZhZGRlOTFmMTUxODc2NmJmNWE5YTBmNzM5ZGQwOTYyNzc5ZCIsInNlcW5vIjo5LCJ0YWciOiJzaWduYXR1cmUifaNzaWfEQETFPZbLNq200Vpx5D+FZlKfH88Q2CffsuTjJ81iPITzqwQcFp6f5FkrcAA+lGnGbkJcrHendXn4ni/I6nMhdwGoc2lnX3R5cGUgo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/cmyers
+
