@@ -46,34 +46,34 @@
 <h1><!--#echo var = "posttitle" --></h1>
 <h2><!--#echo var = "postdate" --></h2>
 <p>
-Software engineers come in a veritable plethora of flavors these days.  You have
-your low-level kernel devs, your algorithms-heavy backend java engineers, your
+Software engineers come in a veritable cornucopia of flavors these days.  You have
+your low-level kernel developers, your algorithms-heavy backend Java engineers, your
 expert-CSS-tweaking front-end engineers, your full-stack engineers who work on a
 web application from end to end, and specializations like tools engineers,
-devops engineers, scale engineers, the list goes on.  When I think about the
+DevOps engineers, scale engineers, the list goes on.  When I think about the
 work of telling computers what to do, I like to think first about the topics
 that every single one of these roles deals with.  What is the overlap?  One
 important aspect of software engineering that concerns every one of us is the
-question "what is, and what is not, part of our work product?"
+question "What is, and what is not, part of our work product?"
 </p><p>
 In the early days of computers, programs were just 1s and 0s.  Helplessly
 coupled to the hardware architecture that documented which 1s and 0s meant add,
 subtract, multiply, etc., a program was almost inseperable from the hardware it
 was written on.  A good argument could be made that the work product was
-actually a functioning machine that did whatever the goal was.  An engineer
+in reality a functioning machine that did whatever the goal was.  An engineer
 obtained a piece of hardware, put 1s and 0s into it using toggle switches,
 cards, keyboards, or whatever - and the result was a machine that performed
 certain calculations or responded to inputs with the desired outputs.
 </p><p>
 The next step was some of the early portable programs.  Once a program could
-actually be expected to be written once, then run on multiple different types of
+truly be expected to be written once, then run on multiple different types of
 hardware, it changed this perspective significantly.  This allowed a person who
 was not the engineer that wrote the software to understand, deploy, and configure
-the software.  Now the software by itself had obvious value, and the complete
+the software.  Now the software itself had obvious value, and the complete
 working system was less important because it could be easily recreated from the
 software.
 </p><p>
-But what does it take for an engineer to understand, deploy, and configured the
+However, what does it take for an engineer to understand, deploy, and configure the
 work of some other engineer?  How can we make that easier, less costly, faster?
 Our industry has (mostly) realized that not all software is equal in these
 tasks.  Industry best practices began to form to optimize "mantainability".
@@ -108,7 +108,7 @@ might give you a clue.  Check out this diff below from the QBT project:
 
 The added line is unclear by itself, but in the context of the commit message,
 it is much clearer.  Imagine if this change was folded into a larger change that
-did 5 different unrelated things... especially imagine if this diff had a ton of
+did 5 different unrelated things ... especially imagine if this diff had a ton of
 needless whitespace changes, text-wrapping changes that held no semantic
 difference, or style changes (like moving curly braces to different lines).
 Understanding what it does, and what it does or does not have to do with the
