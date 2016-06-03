@@ -103,13 +103,16 @@ Build Tool</a> is an excellent candidate for this - that is by design.
 There is a potentially-low-hanging fruit available to a huge fraction of the
 software engineering shops out there - make your releases and branching
 processes easy, and a single step.  Make them run locally.  Don't couple them to
-a jenkins job someone needs to run on a remote system with parameters documented
-in some wiki somewhere (yes, this is a real thing people do because...reasons).
-If the "how to create a branch" wiki page is longer than "run this command",
-that's an anti-pattern.  If the codebase is massive, and this fruit is not
-"low-hanging", maybe there are other priorities, but this is something that
-should eventually be done.  The best time to plant a tree is 20 years ago, but
-the second best time to plant a tree is right now.
+a jenkins job that runs code that exists nowhere in source control, that someone
+needs to run on a dedicated slave that has special credentails, whose
+entrypoints are archaic parameters only documented in some wiki somewhere.  If
+you can't replicate it, it isn't automated.  If you can't do it locally, it
+isn't transparent or easy to understand.  If the "how to create a branch" wiki
+page is longer than "run this command", or "run this jenkins job", that's an
+anti-pattern.  If the codebase is massive, and this fruit is not "low-hanging",
+maybe there are other priorities, but this is something that should eventually
+be done.  The best time to plant a tree is 20 years ago, but the second best
+time to plant a tree is right now.
 </p>
       </div>
 
