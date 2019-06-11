@@ -5,7 +5,7 @@ set -e
 cp -r static/* $OUTPUT_ARTIFACTS_DIR/
 
 mkdir $OUTPUT_ARTIFACTS_DIR/resume
-cp resume/* $OUTPUT_ARTIFACTS_DIR/resume
+cp -r resume/* $OUTPUT_ARTIFACTS_DIR/resume
 #cd $OUTPUT_ARTIFACTS_DIR/resume && pdflatex resume.tex 2>&1 > /dev/null
 cd $OUTPUT_ARTIFACTS_DIR/resume && pdflatex resume.tex
 

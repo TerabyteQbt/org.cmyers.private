@@ -8,43 +8,68 @@
 %________________________________________________________________________________________
 \documentclass[line, margin]{res}
 
-% from http://tex.stackexchange.com/questions/52351/quote-marks-are-backwards-using-texmaker-pdflatex
-% \usepackage[english]{babel}
-% \usepackage[autostyle]{csquotes}
-
 \begin{document}
+
 \name{\Large Carl Harris Myers}
-\address{ Union City, CA $\bullet$ (206) 931-9916 $\bullet$ cmyers@cmyers.org $\bullet$ https://cmyers.org }
+\address{ Austin, TX $\bullet$ (206) 931-9916 $\bullet$ cmyers@cmyers.org $\bullet$ https://cmyers.org }
 
 \begin{resume}
 
 \section{OBJECTIVE}
-As a senior software engineer with extensive internal tools experience, I want
-to act as a force multiplier by creating and improving development ecosystems
-that delight other developers.  I want this sphere of influence to extend to
-the open source community.
+As a senior/principal software engineer with over 15 years of industry
+experience, I want to be a force multiplier by driving architecture and
+workflows in large scale systems which delight other developers and result in
+massive value.
+
+{\bf I am presently interested in work in the Austin, TX area or remote roles}
 
 \section{EXPERIENCE}
+{\bf Cloudera, Inc.} -- Palo Alto, CA
+\\
+\textit{Build and Release Engineer (IC4)} \hfill {\bf May 2016 -- Present}
+\\
+\begin{itemize}
+\item
+Contributed meaningfully to the ART service (Automated Review Testing) which
+launched tiered test runs for developer submitted code reviews, ensuring each
+proposed change got a build, followed by increasingly long-running tiers of
+test execution (only if the prior dependencies completed successfully).  ART
+was implemented in Python.
+\item
+Through migration to a Docker based build system, delivered more reliable and
+developer friendly builds.  The end result achieved cost savings and decreased
+maintenence burden.  Backported system to legacy branches as well.  The
+polyglot stack included Python, Java, C++, and others (Hadoop Ecosystem).
+\item
+Significantly improved build stability and reduced developer roadblocks due to
+broken builds by implementing and driving adoption of a new commit workflow.
+Before merging changes the system vetted all developer commits by
+running unit tests, an additional full stack build, and later tiered
+integration test runs, supplementing code reviews.
+\item
+As part of the cloud spend taskforce reduced the company's cloud-related costs
+for compute and storage resources, achieving an anual savings of seven figures.
+\item
+As part of on-call rotation supported source control, commit workflows, product
+branching/releases, and builds by resolving hundreds of tickets impacting
+individuals across the company.
+\item
+Drove recruiting activities including resume reviews, phone screens,
+and in-person interviews to expand the team.
+\end{itemize}
+
 {\bf PernixData, Inc.} -- San Jose, CA
 \\
-\textit{Tools Engineer} \hfill {\bf June 2015 -- Present}
+\textit{Tools Engineer} \hfill {\bf June 2015 -- May 2016}
 \\
 \begin{itemize}
 \item
 Drove the migration from a legacy Git server to Atlassian Bitbucket Server.
-Performed initial setup, data import, installation, and plugin configuration
-for the new system.  Developed custom plugins to replace functionality of the
-old system.  The new system delivered self-service features to 100+ developers
-reducing the support burden.
 \item
 Wrote and maintained several additional plugins for the Atlassian ecosystem.
-Delivered streamlined support by enabling self-service access to the
-``unbreakable build system'' for all projects in the company.  See Github, source
-available.
+See Github, source available.
 \item
-Maintained legacy build systems while architecting new build tools to achieve
-long-range company wide impact, with a focus on reliability, reproducibility,
-transparency, and technology agnosticism.
+Maintained legacy build systems while contributing to new build systems, and performed releases.
 \end{itemize}
 
 {\bf Palantir Technologies, Inc.} -- Palo Alto, CA
@@ -53,9 +78,10 @@ transparency, and technology agnosticism.
 \\
 \begin{itemize}
 \item
-Drove the migration of source control from Subversion to Git.  Delivered an
-``unbreakable build system'' which used Git to enable automated testing of code
-before merge.  Palantir realized significant gains in productivity and quality.
+Drove the migration of company-wide source control from Subversion to Git.
+Delivered an ``unbreakable build system'' which used Git to enable automated
+testing of code before merge.  Palantir realized significant gains in
+productivity and quality.
 \item
 Wrote and maintained several plugins for the Atlassian ecosystem.  Delivered
 reduced support burden by enabling self-service access to the ``unbreakable
@@ -76,45 +102,37 @@ over 200 interviews.
 
 {\bf Amazon.com} -- Seattle, WA
 \\
-\textit{SDE, Developer Applications Team} \hfill {\bf January, 2008 -- January, 2009}
+\textit{SDE, Multiple Teams} \hfill {\bf March, 2006 -- January, 2009}
 \\
 \begin{itemize}
 \item
-As lead engineer on a four person team, improved turn around times and reduced
-translation costs by implementing an internal web service that provided string
-translation and localization services.
+As project tech lead, worked on a localization tool which improved turn around times and reduced
+costs for string translation.
 \item
-Evaluated newly-sourced talent through on-site and phone interviews.
-\end{itemize}
-
-\textit{Software Design Engineer, Developer Tools Team} \hfill {\bf March 2006 -- January, 2008}
-\\
-\begin{itemize}
+Helped maintain and support a complex build system used by over 2000 developers
+which enforced unrivaled reproducibility, consistency, and dependency
+management.  The tool regularly built a codebase which exceeded 200GB and 8
+million files, split across more than 13,000 discrete packages.
 \item
-Maintained and supported a complex build system used by over 2000 developers
-which focused on reproducibility, consistency, and dependency management of
-large codebases.  Worked on a codebase which exceeded 200GB and 8 million
-files, which was divided into more than 13,000 discrete packages.
-\item
-As primary owner of the source control repository, migrated to new hardware,
-upgraded software, and ensured backups were functioning while responsible for a
-priceless codebase containing over 8,000 engineer-years of work.
+As primary owner of the source control repository for the entire company,
+migrated to new hardware, upgraded software, and ensured backups were
+functioning.
 \item
 Designed and implemented a distributed application which allowed internal
 customers to view logs for the build system to assist in debugging.
 \item
 Performed porting and developed porting tools to assist in the migration from
 Redhat 7.2 to Red Hat Enterprise Linux 3 and later to Red Hat Enterprise Linux
-5 64-bit, saving the company over 20 million dollars during Q4 scaling alone.
+5 64-bit, saving the company over 20 million dollars during a single year's Q4
+scaling.
 \item
-As part of the Environment Improvement Ninjas, used personal time to work on
-porting the environment to new platforms, writing scripts to get metadata more
-easily, and added tab completions, boosting productivity for myself and other
-developers.  The Environment Improvement tools are used by almost every
-developer at Amazon.
+Contributed to the Environment Improvement Ninjas, a skunkworks project where I
+used personal time to write tools to improve developer productivity.  The
+Environment Improvement tools are (to the best of my knowledge) still used by
+almost every developer at Amazon today.
 \item
-Recruited and interviewed candidates both on-site and through phone screens,
-and attended college recruiting events.
+Evaluated newly-sourced talent through college recruiting, on-site interviews,
+and phone interviews.
 \end{itemize}
 
 \section{EDUCATION}
@@ -122,29 +140,28 @@ and attended college recruiting events.
 {\bf Purdue University}, Lafayette, IN
 \begin{itemize}
 \item
-Graduated in December of 2005 with a Bachelors in Electrical and Computer
-Engineering.
-\item
-Coursework included Operating Systems Engineering, Advanced Object Oriented
-Programming and Scripting, Object Oriented Design, Networking, Microprocessor
-Architecture.
+Graduated in December of 2005 with a Bachelors degree in Electrical and
+Computer Engineering.
 \end{itemize}
 
 % Programming Expertise
-\section{PROGRAMMING EXPERTISE}
+\section{PROGRAMMING AND TECHNOLOGY EXPERTISE}
 \begin{itemize}
-\item 
-Java: 9 / 10, 10 years experience
-\item 
-Ruby: 7 / 10, 4 years experience
+\item
+Git: 9 / 10, 9 years experience
+\item
+Java: 8 / 10, 10 years experience
+\item
+Python: 6 / 10, 4 years experience
+\item
+Ruby: 5 / 10, 4 years experience
 \item
 Perl: 5 / 10, 3 years experience
 \item
 C++: 5 / 10, 3 years experience
 \item
-Python: 3 / 10, 1 year experience
-\item
-Also fluent with Bash/Zsh, SQL, Gradle, Maven, Make, Git, Debian/Ubuntu Linux, Centos/Redhat Linux
+I consider myself extremely proficient in source control in general and Git in particular.  I am deeply knowledgeable about git internals and source code, as well as various git related projects such as Gerrit, Github, and Atlassian Bitbucket Server (nee Stash).
+I am also fluent with Bash/Zsh, SQL, Gradle, Maven, Make, Debian/Ubuntu Linux, Centos/Redhat Linux.  I would be very interested in learning more about Golang or Rust, and have had small interactions with them in the past.
 \end{itemize}
 
 \section{OPEN SOURCE WORK}
@@ -161,8 +178,9 @@ https://github.com/terabyte/stash-codesearch-plugin
 http://qbtbuildtool.com
 \\
 
-\section{INTERESTS} 
-Open Source Software, Video Games, Poker, Skepticism, Classical Music, Scientific Pursuits.
+\section{INTERESTS}
+Open Source Software, Epistemology, Classical Music (I play the Cello),
+Scientific Pursuits, Poker, Video Games
 
 \section{REFERENCES}
 Available upon request
@@ -170,34 +188,6 @@ Available upon request
 \end{resume}
 \end{document}
 
-%	%____________________________________________________________________________________
-%	% Achievements
-%	%    \section{\mysidestyle Achievements} 
-%	%
-%	%    \begin{list2} 
-%	%    \item
-%	%		Recognized as a leader in ownership and support of systems (Amazon and Palantir)
-%	%    \item
-%	%		Recognized for participation in recruiting regularly (Amazon and Palantir)
-%	%    \item
-%	%        Mentored interns and new-hires (Amazon and Palantir)
-%	%    \item
-%	%		Member of various school and community orchestras' cello section (Purdue Symphony Orchestra, Sammamish Symphony Orchestra, NovaVista Symphony Orchestra)
-%	%    \end{list2}
-%
-%	%____________________________________________________________________________________
-%	% Interests
-%	\section{\mysidestyle Interests} 
-%	Open Source Software, Video Games, Poker, Skepticism, Classical Music, Scientific Pursuits.
-%
-%	%____________________________________________________________________________________
-%	% References
-%	\section{\mysidestyle References}
-%	{\sl References available upon request.}
-%	%________________________________________________________________________________________
-%\end{resume}
-%\end{document}
-%
 %%________________________________________________________________________________________
 %% EOF
 %
