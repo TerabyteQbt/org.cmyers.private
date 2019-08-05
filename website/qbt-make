@@ -4,8 +4,33 @@ set -e
 
 cp -r static/* $OUTPUT_ARTIFACTS_DIR/
 
-mkdir $OUTPUT_ARTIFACTS_DIR/resume
-cp -r resume/* $OUTPUT_ARTIFACTS_DIR/resume
-#cd $OUTPUT_ARTIFACTS_DIR/resume && pdflatex resume.tex 2>&1 > /dev/null
-cd $OUTPUT_ARTIFACTS_DIR/resume && pdflatex resume.tex
+function build_resume {
+    TYPENAME="$1"
+
+    echo "Building $TYPENAME resume..."
+    mkdir -p "$OUTPUT_ARTIFACTS_DIR/resume/$TYPENAME"
+    cp -r resume/* "$OUTPUT_ARTIFACTS_DIR/resume/$TYPENAME"
+    (cd "$OUTPUT_ARTIFACTS_DIR/resume/$TYPENAME" && ./render-template.py "$TYPENAME" resume.tex.jinja > resume.tex && pdflatex resume.tex)
+}
+
+# TODO: version control python, jinja, etc?
+# fetch jinja2 template engine
+VE="$OUTPUT_ARTIFACTS_DIR/.ve"
+virtualenv "$VE"
+source "$VE/bin/activate"
+pip install jinja2
+
+build_resume short
+build_resume long
+
+# cleanup virtuanenv so it isn't part of artifacts
+rm -rf "$VE"
+
+# rename/reposition the resumes so they are in the correct path
+mv "$OUTPUT_ARTIFACTS_DIR/resume/short/resume.tex" "$OUTPUT_ARTIFACTS_DIR/resume/resume-short.tex"
+mv "$OUTPUT_ARTIFACTS_DIR/resume/short/resume.pdf" "$OUTPUT_ARTIFACTS_DIR/resume/resume-short.pdf"
+mv "$OUTPUT_ARTIFACTS_DIR/resume/long/resume.tex" "$OUTPUT_ARTIFACTS_DIR/resume/resume-full.tex"
+mv "$OUTPUT_ARTIFACTS_DIR/resume/long/resume.pdf" "$OUTPUT_ARTIFACTS_DIR/resume/resume-full.pdf"
+rm -rf "$OUTPUT_ARTIFACTS_DIR/resume/long"
+rm -rf "$OUTPUT_ARTIFACTS_DIR/resume/short"
 
