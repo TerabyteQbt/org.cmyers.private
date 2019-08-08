@@ -21,13 +21,11 @@ experience, I want to be a force multiplier by driving architecture and
 workflows in large scale systems which delight other developers and result in
 significant value.
 
-{\bf I am passively open to opportunities in the Austin, TX area or remote roles}
-
-{% if SHORT_RESUME %}
-{\bf NOTE: this is an abbreviated resume to fit on two pages.  An extended version is available at http://cmyers.org/resume/resume-full.pdf}
-{% elif LONG_RESUME %}
-{\bf NOTE: this is an extended resume with complete work history.  An abbreviated two-page version is available at http://cmyers.org/resume/resume-short.pdf}
-{% endif %}
+{\bf NOTE: I am passively open to opportunities in the Austin, TX area or remote roles.
+{%- if SHORT_RESUME %}  This is an abbreviated resume to fit on two pages.  An extended version is available at http://cmyers.org/resume/resume-full.pdf
+{%- elif LONG_RESUME %}  This is an extended resume with complete work history.  An abbreviated two-page version is available at http://cmyers.org/resume/resume-short.pdf
+{%- endif -%}
+}
 
 \section{EXPERIENCE}
 {\bf Cloudera, Inc.} -- Palo Alto, CA and Austin, TX
@@ -36,20 +34,29 @@ significant value.
 \\
 \begin{itemize}
 \item
-Contributed meaningfully to Automated Review Testing (ART) which
-launched tiered test runs for developer submitted code reviews.  ART ensures a successful build for each proposed change, and upon completion runs increasingly comprehensive tiers of
-test execution.  ART is implemented in Python.
+Contributed meaningfully to Automated Review Tool (ART) which
+launched tiered test runs for developer submitted code reviews.
+{%- if LONG_RESUME -%}
+ART ensures a successful build for each proposed change, and upon completion runs increasingly comprehensive tiers of
+test execution.
+{%- endif -%}
+ART is implemented in Python.
 \item
 Through migration to a Docker based build system, delivered more reliable and
-developer friendly builds.  The end result achieved cost savings and decreased
+developer friendly builds.
+{%- if LONG_RESUME -%}
+The end result achieved cost savings and decreased
 maintenance burden.  Backported system to legacy branches as well.  The
 polyglot stack included Python, Java, C++, and others in the Hadoop ecosystem.
+{%- endif %}
 \item
 Significantly improved build stability and reduced developer roadblocks due to
 broken builds by implementing, and driving adoption of, a new commit workflow.
+{%- if LONG_RESUME -%}
 Before merging changes, the system vetted all developer commits by
 running unit tests, an additional full stack build, and later tiered
 integration test runs, supplementing code reviews.
+{%- endif %}
 \item
 Supported the cloud spend task force to reduce the company's cloud-related costs
 for compute and storage resources, achieving an annual savings of seven figures.
@@ -69,9 +76,15 @@ and in-person interviews to expand the team.
 Drove the migration from a legacy Git server to Atlassian Bitbucket Server.
 \item
 Wrote and maintained several additional plugins for the Atlassian ecosystem.
-See Github, source available.
+See open source section below, source available.
 \item
-Maintained legacy build systems while contributing to new build systems, and performed releases.
+Maintained legacy build systems while contributing to new build systems.
+{% if LONG_RESUME %}
+\item
+Performed releases and branching activities.
+\item
+Produced a fix tracking tool called the Entomologizer.
+{% endif %}
 \end{itemize}
 
 {\bf Palantir Technologies, Inc.} -- Palo Alto, CA
@@ -82,23 +95,39 @@ Maintained legacy build systems while contributing to new build systems, and per
 \item
 Drove the migration of company-wide source control from Subversion to Git which
 delivered a build system that guaranteed build stability and enabled automated
-code testing.  Palantir realized significant gains in productivity and quality.
+code testing.
+{%- if LONG_RESUME -%}
+Palantir realized significant gains in productivity and quality.
+{%- endif %}
 \item
-Wrote and maintained several plugins for the Atlassian ecosystem.  Delivered
-reduced support burden by enabling self-service access to the build system
-for all projects in the company.  See Github, source available.
+Wrote and maintained several plugins for the Atlassian ecosystem.
+{%- if LONG_RESUME -%}
+Delivered reduced support burden by enabling self-service access to the build
+system for all projects in the company.
+See open source section below, source available.
+{%- endif -%}
 By 2015, over 500 projects were building using Stashbot, one such example.
 \item
+{% if LONG_RESUME %}
 As the first and most tenured engineer on the ITOOLS team, provided scaled
 support through guidance, best practices, customized tools, just-in-time
 solutions, and proactive recommendations that decreased the support burden and
 facilitated the exponential expansion of the company as they grew from 200 to
 over 1000 employees.
+{% else %}
+Provided scaled support that facilitated the exponential expansion of the company as they grew from 200 to
+over 1000 employees.
+{% endif %}
 \item
+{% if LONG_RESUME %}
 Evaluated new talent through on-site and phone interviews to directly
 contribute to the growth and success of the ITOOLS team.  I directly
 contributed to the hire of every new employee on the ITOOLS team and performed
 over 200 interviews.
+{% else %}
+Evaluated new talent, directly contributed to the hire of every new employee on the ITOOLS team, and performed
+over 200 interviews.
+{% endif %}
 \end{itemize}
 
 {\bf Amazon.com} -- Seattle, WA
@@ -110,26 +139,43 @@ over 200 interviews.
 As project tech lead, worked on a localization tool which improved turn around times and reduced
 costs for string translation.
 \item
+{% if LONG_RESUME %}
 Helped maintain and support a complex build system used by over 2000 developers
 which enforced unrivaled reproducibility, consistency, and dependency
 management.  The tool regularly built a codebase which exceeded 200GB and 8
 million files, split across more than 13,000 discrete packages.
+{% else %}
+Helped maintain and support build system which enforced unrivaled reproducibility, consistency, and dependency
+management.
+{% endif %}
 \item
+{% if LONG_RESUME %}
 As primary owner of the source control repository for the company,
 migrated to new hardware, upgraded software, and ensured backups were
 functioning.
+{% else %}
+Migrated source control to new hardware, upgraded software, and ensured backups were functioning.
+{% endif %}
 \item
 Designed and implemented a distributed application which allowed internal
 customers to view logs for the build system to assist in debugging.
 \item
+{% if LONG_RESUME %}
 Performed porting and developed porting tools to assist in the migration to
 updated versions of Redhat Enterprise Linux, including 64-bit, saving
 the company over 20 million dollars during a single year's Q4 scaling.
+{% else %}
+Performed porting and developed porting tools to assist in a 64-bit linux
+migration, saving the company over 20 million dollars during a single year's Q4
+scaling.
+{% endif %}
+{% if LONG_RESUME %}
 \item
 Contributed to the Environment Improvement Ninjas, a skunkworks project where I
 used personal time to write tools to improve developer productivity.  The
 Environment Improvement tools are, to the best of my knowledge, still used by
 almost every developer at Amazon today.
+{% endif %}
 \item
 Evaluated newly-sourced talent through college recruiting, on-site interviews,
 and phone interviews.
@@ -148,20 +194,57 @@ Computer Engineering.
 \section{PROGRAMMING AND TECHNOLOGY EXPERTISE}
 \begin{itemize}
 \item
-Git: 9 / 10, 9 years experience
+Git: 9 / 10, 9 years experience, extremely proficient (Github, Gerrit, Stash/Bitbucket, Git Internals, other SCM)
 \item
-Java: 8 / 10, 10 years experience
+Java: 8 / 10, 10 years experience (including some Java8/9 features)
 \item
-Python: 6 / 10, 4 years experience
+Python: 6 / 10, 4 years experience (including some python3 features)
 \item
 Ruby: 5 / 10, 4 years experience
 \item
 Perl: 5 / 10, 3 years experience
 \item
 C++: 5 / 10, 3 years experience
+{% if LONG_RESUME %}
 \item
-I consider myself extremely proficient in source control in general and Git in particular.  I am deeply knowledgeable about Git internals and source code, as well as various Git related projects such as Gerrit, Github, and Atlassian Bitbucket Server (nee Stash).
-I am also fluent with Bash/Zsh, SQL, Gradle, Maven, Make, Debian/Ubuntu Linux, Centos/Redhat Linux.  I would be very interested in learning more about Golang or Rust, and have had small interactions with them in the past.
+Bash/Zsh: 5 / 10, many years experience
+\item
+SQL (mysql, postgres, oracle): 3 / 10, many years experience
+\item
+Gradle: 5 / 10, many years experience
+\item
+Maven: 5 / 10, many years experience
+\item
+GNU Make: 5 / 10, many years experience
+\item
+Debian/Ubuntu Linux: 8 / 10, many years experience
+\item
+Centos/Redhat Linux: 5 / 10, many years experience
+\item
+Golang: 1 / 10, interested in learning more!
+\item
+Rust: 1 / 10, interested in learning more!
+{% else %}
+\item
+I am fluent Bash/Zsh, SQL, Gradle, Maven, Make, Debian/Ubuntu Linux, Centos/Redhat Linux, and interested in learning Golang or Rust
+{% endif %}
+{% if LONG_RESUME %}
+{\small
+\item
+{\bf Strength Key: Each rating includes the rating below}
+\begin{itemize}
+\item 10: I could have a protracted discussion with the inventor of this technology including deep discussions about implementation details without prior preparation or embarrassment.  I honestly believe I have little or nothing more to learn about this technology.  {\bf I would never claim this rating.}
+\item 9: I could follow a deep technical discussion about most implementation details discussed on the developer list for this technology
+\item 8: I am very familiar with all user-facing aspects of this technology as well as some implemnetation details necessary for mastery
+\item 7: I am able to use this technology as a competent poweruser with little need to seek references
+\item 6: I am a competent poweruser of this technology, though I occasionally seek references or examples
+\item 5: I have a firm understanding of this technology but often seek examples or references to call upon for my work
+\item 3: I am a user of this technology, but not a power user
+\item 1: I have a passing familiarity with this technology, having used it a handful of times or interacted with it superficially, listing it primarily because I am interested in learning more
+\end{itemize}
+}
+{% endif %}
+
 \end{itemize}
 
 \section{OPEN SOURCE WORK}
@@ -176,11 +259,15 @@ https://github.com/terabyte/stash-codesearch-plugin
 {\bf QBT - QBT Build Tool} \hfill Core Developer
 \\
 http://qbtbuildtool.com
+{%- if LONG_RESUME %}
 \\
+{\bf Atlassian Bitbucket Server Plugin: Disapproval Plugin} \hfill Primary Author
+\\
+https://github.com/terabyte/stash-disapproval-plugin
+{% endif -%}
 
 \section{INTERESTS}
-Open Source Software, Epistemology, Classical Music, Playing Cello,
-Scientific Pursuits, Poker, Video Games
+Open Source Software, Epistemology, Classical Music, Orchestral Cello, Scientific Pursuits, Poker, Video Games
 
 \section{REFERENCES}
 Available upon request
