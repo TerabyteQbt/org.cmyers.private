@@ -6,6 +6,10 @@
 % @date     March 20, 2016
 % @info     based on info from http://www.maxburstein.com/blog/creating-resume-using-latex/
 %________________________________________________________________________________________
+% TODO: prevent weird page breaks after headings - maybe \begin{samepage} ?
+% TODO: pull strength key off to the left as visual chart?
+% TODO: write a blog post about what X/10 means, link to it instead
+% TODO: consider HTML resume instead (so I can have active elements) with PDF conversion tool like https://www.quora.com/What-is-the-best-way-to-generate-a-PDF-file-from-HTML-and-CSS
 \documentclass[line, margin]{res}
 
 \begin{document}
@@ -21,7 +25,7 @@ experience, I want to be a force multiplier by driving architecture and
 workflows in large scale systems which delight other developers and result in
 significant value.
 
-{\bf NOTE: I am passively open to opportunities in the Austin, TX area or remote roles.
+{\bf NOTE: I am open to opportunities in the Austin, TX area or remote roles.
 {%- if SHORT_RESUME %}  This is an abbreviated resume to fit on two pages.  An extended version is available at http://cmyers.org/resume/resume-full.pdf
 {%- elif LONG_RESUME %}  This is an extended resume with complete work history.  An abbreviated two-page version is available at http://cmyers.org/resume/resume-short.pdf
 {%- endif -%}
@@ -36,15 +40,15 @@ significant value.
 \item
 Contributed meaningfully to Automated Review Tool (ART) which
 launched tiered test runs for developer submitted code reviews.
-{%- if LONG_RESUME -%}
+{% if LONG_RESUME -%}
 ART ensures a successful build for each proposed change, and upon completion runs increasingly comprehensive tiers of
 test execution.
-{%- endif -%}
+{%- endif %}
 ART is implemented in Python.
 \item
 Through migration to a Docker based build system, delivered more reliable and
 developer friendly builds.
-{%- if LONG_RESUME -%}
+{%- if LONG_RESUME %}
 The end result achieved cost savings and decreased
 maintenance burden.  Backported system to legacy branches as well.  The
 polyglot stack included Python, Java, C++, and others in the Hadoop ecosystem.
@@ -52,7 +56,7 @@ polyglot stack included Python, Java, C++, and others in the Hadoop ecosystem.
 \item
 Significantly improved build stability and reduced developer roadblocks due to
 broken builds by implementing, and driving adoption of, a new commit workflow.
-{%- if LONG_RESUME -%}
+{%- if LONG_RESUME %}
 Before merging changes, the system vetted all developer commits by
 running unit tests, an additional full stack build, and later tiered
 integration test runs, supplementing code reviews.
@@ -96,16 +100,15 @@ Produced a fix tracking tool called the Entomologizer.
 Drove the migration of company-wide source control from Subversion to Git which
 delivered a build system that guaranteed build stability and enabled automated
 code testing.
-{%- if LONG_RESUME -%}
+{% if LONG_RESUME -%}
 Palantir realized significant gains in productivity and quality.
 {%- endif %}
 \item
 Wrote and maintained several plugins for the Atlassian ecosystem.
-{%- if LONG_RESUME -%}
-Delivered reduced support burden by enabling self-service access to the build
+{%- if LONG_RESUME %} Delivered reduced support burden by enabling self-service access to the build
 system for all projects in the company.
 See open source section below, source available.
-{%- endif -%}
+{%- endif %}
 By 2015, over 500 projects were building using Stashbot, one such example.
 \item
 {% if LONG_RESUME %}
@@ -129,7 +132,6 @@ Evaluated new talent, directly contributed to the hire of every new employee on 
 over 200 interviews.
 {% endif %}
 \end{itemize}
-
 {\bf Amazon.com} -- Seattle, WA
 \\
 \textit{SDE, Multiple Teams} \hfill {\bf March, 2006 -- January, 2009}
@@ -196,9 +198,9 @@ Computer Engineering.
 \item
 Git: 9 / 10, 9 years experience, extremely proficient (Github, Gerrit, Stash/Bitbucket, Git Internals, other SCM)
 \item
-Java: 8 / 10, 10 years experience (including some Java8/9 features)
+Java: 8 / 10, 10 years experience (including some Java 8/9 features)
 \item
-Python: 6 / 10, 4 years experience (including some python3 features)
+Python: 6 / 10, 4 years experience (including some Python 3 features)
 \item
 Ruby: 5 / 10, 4 years experience
 \item
@@ -209,7 +211,7 @@ C++: 5 / 10, 3 years experience
 \item
 Bash/Zsh: 5 / 10, many years experience
 \item
-SQL (mysql, postgres, oracle): 3 / 10, many years experience
+SQL (MySQL, PostgreSQL, Oracle): 3 / 10, many years experience
 \item
 Gradle: 5 / 10, many years experience
 \item
