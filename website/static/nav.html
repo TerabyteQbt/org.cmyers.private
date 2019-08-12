@@ -19,12 +19,10 @@
 				<!--#endif -->
 					<a href="/">Home</a></li>
 
-				<!--#if expr = "$page = blog" -->
-					<li class="active">
-				<!--#else -->
-					<li>
-				<!--#endif -->
-					<a href="/blog/blog.html">Blog</a></li>
+					<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Blog<span class="caret"></span></a>
+					<ul class="dropdown-menu" role="menu">
+                        <li><a href="https://github.com/terabyte/blog">Blog on Github</a></li>
 
 				<!--#if expr = "$page = about" -->
 					<li class="active">
