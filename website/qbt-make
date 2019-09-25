@@ -10,7 +10,7 @@ function build_resume {
     echo "Building $TYPENAME resume..."
     mkdir -p "$OUTPUT_ARTIFACTS_DIR/resume/$TYPENAME"
     cp -r resume/* "$OUTPUT_ARTIFACTS_DIR/resume/$TYPENAME"
-    (cd "$OUTPUT_ARTIFACTS_DIR/resume/$TYPENAME" && ./render-template.py "$TYPENAME" resume.tex.jinja > resume.tex && pdflatex resume.tex)
+    (cd "$OUTPUT_ARTIFACTS_DIR/resume/$TYPENAME" && ./render-template.py "$TYPENAME" resume.tex.jinja "$QBT_ENV_REVISION" > resume.tex && pdflatex resume.tex)
 }
 
 # TODO: version control python, jinja, etc?

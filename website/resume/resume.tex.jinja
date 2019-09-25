@@ -3,27 +3,24 @@
 % @brief    LaTeX Resume for Carl Myers
 % @author   Carl Harris Myers
 % @url      https://www.cmyers.org
-% @date     March 20, 2016
 % @info     based on info from http://www.maxburstein.com/blog/creating-resume-using-latex/
 %________________________________________________________________________________________
 % TODO: prevent weird page breaks after headings - maybe \begin{samepage} ?
-% TODO: pull strength key off to the left as visual chart?
-% TODO: write a blog post about what X/10 means, link to it instead
 % TODO: consider HTML resume instead (so I can have active elements) with PDF conversion tool like https://www.quora.com/What-is-the-best-way-to-generate-a-PDF-file-from-HTML-and-CSS
 \documentclass[line, margin]{res}
 
 \begin{document}
 
 \name{\Large Carl Harris Myers}
-\address{ Austin, TX $\bullet$ (206) 931-9916 $\bullet$ cmyers@cmyers.org $\bullet$ https://cmyers.org }
+\address{ Austin, TX $\bullet$ (206) 931-9916 $\bullet$ cmyers@cmyers.org $\bullet$ https://cmyers.org $\bullet$ Rev: {{REVISION}} }
 
 \begin{resume}
 
-\section{OBJECTIVE}
+\section{SUMMARY}
 As a senior/principal software engineer with over 15 years of industry
-experience, I want to be a force multiplier by driving architecture and
-workflows in large scale systems which delight other developers and result in
-significant value.
+experience, I am passionate about building organizations, tools, and workflows
+that multiply productivity and delight developers freeing them to focus on
+products that delight customers.
 
 {\bf NOTE: I am open to opportunities in the Austin, TX area or remote roles.
 {%- if SHORT_RESUME %}  This is an abbreviated resume to fit on two pages.  An extended version is available at http://cmyers.org/resume/resume-full.pdf
@@ -38,15 +35,16 @@ significant value.
 \\
 \begin{itemize}
 \item
-Contributed meaningfully to Automated Review Tool (ART) which
-launched tiered test runs for developer submitted code reviews.
+Solely responsible for writing, testing, and deploying several features for the
+Automated Review Tool (ART) which launched tiered test runs for developer
+submitted code reviews.
 {% if LONG_RESUME -%}
 ART ensures a successful build for each proposed change, and upon completion runs increasingly comprehensive tiers of
 test execution.
 {%- endif %}
-ART is implemented in Python.
+ART is a Python Flask application.
 \item
-Through migration to a Docker based build system, delivered more reliable and
+In support of a migration to a Docker based build system, rewrote build and test code to deliver more reliable and
 developer friendly builds.
 {%- if LONG_RESUME %}
 The end result achieved cost savings and decreased
@@ -54,18 +52,29 @@ maintenance burden.  Backported system to legacy branches as well.  The
 polyglot stack included Python, Java, C++, and others in the Hadoop ecosystem.
 {%- endif %}
 \item
-Significantly improved build stability and reduced developer roadblocks due to
-broken builds by implementing, and driving adoption of, a new commit workflow.
+Migrated 30+ independent component teams to a new
+commit workflow and implemented new build and test code wherever necessary.
+Significantly improved build stability and reduced developer roadblocks due
+to broken builds.
 {%- if LONG_RESUME %}
-Before merging changes, the system vetted all developer commits by
+Before merging changes, this new system vetted all developer commits by
 running unit tests, an additional full stack build, and later tiered
-integration test runs, supplementing code reviews.
+integration test runs, to supplement code reviews.
+{%- endif %}
+\item
+Regarded as company-wide Git expert and defacto owner of all Git services.
+{%- if LONG_RESUME %}
+Responsibilities included configuring and maintaining multiple instances of
+Gerrit, including replication between Gerrit instances and GitHub, supporting
+issues like repository corruption and authentication issues, and consulting on
+Git best practices such as repository partitioning and layout, branching
+strategies, etc.
 {%- endif %}
 \item
 Supported the cloud spend task force to reduce the company's cloud-related costs
 for compute and storage resources, achieving an annual savings of seven figures.
 \item
-As part of on-call rotation, supported all developer workflows and product branching/releases by resolving hundreds of tickets impacting individuals across the company.
+As part of the on-call rotation, supported all developer workflows and product branching/releases by resolving hundreds of tickets impacting individuals across the company.
 \item
 Drove recruiting activities including resume reviews, phone screens,
 and in-person interviews to expand the team.
@@ -77,17 +86,17 @@ and in-person interviews to expand the team.
 \\
 \begin{itemize}
 \item
-Drove the migration from a legacy Git server to Atlassian Bitbucket Server.
+Sole developer in the migration from a legacy Git server to Atlassian Bitbucket Server.
 \item
-Wrote and maintained several additional plugins for the Atlassian ecosystem.
+Sole developer of several additional plugins for the Atlassian ecosystem.
 See open source section below, source available.
 \item
-Maintained legacy build systems while contributing to new build systems.
+Exclusively responsible for maintaining legacy build systems while contributing to a new build system.
 {% if LONG_RESUME %}
 \item
-Performed releases and branching activities.
+Primary developer responsible for releases and branching activities.
 \item
-Produced a fix tracking tool called the Entomologizer.
+Designed, wrote, tested, and delivered a fix tracking tool called the Entomologizer, for which I was solely responsible.
 {% endif %}
 \end{itemize}
 
@@ -97,19 +106,19 @@ Produced a fix tracking tool called the Entomologizer.
 \\
 \begin{itemize}
 \item
-Drove the migration of company-wide source control from Subversion to Git which
+Exclusively led the migration of company-wide source control from Subversion to Git which
 delivered a build system that guaranteed build stability and enabled automated
 code testing.
 {% if LONG_RESUME -%}
 Palantir realized significant gains in productivity and quality.
 {%- endif %}
 \item
-Wrote and maintained several plugins for the Atlassian ecosystem.
+As primary developer, wrote and maintained several plugins for the Atlassian ecosystem.
 {%- if LONG_RESUME %} Delivered reduced support burden by enabling self-service access to the build
 system for all projects in the company.
 See open source section below, source available.
 {%- endif %}
-By 2015, over 500 projects were building using Stashbot, one such example.
+By 2015, over 500 projects were building using Stashbot, one such example on which I was the sole developer.
 \item
 {% if LONG_RESUME %}
 As the first and most tenured engineer on the ITOOLS team, provided scaled
@@ -196,7 +205,7 @@ Computer Engineering.
 \section{PROGRAMMING AND TECHNOLOGY EXPERTISE}
 \begin{itemize}
 \item
-Git: 9 / 10, 9 years experience, extremely proficient (Github, Gerrit, Stash/Bitbucket, Git Internals, other SCM)
+Git: 9 / 10, 9 years experience, extremely proficient (GitHub, Gerrit, Stash/Bitbucket, Git Internals, other SCM)
 \item
 Java: 8 / 10, 10 years experience (including some Java 8/9 features)
 \item
