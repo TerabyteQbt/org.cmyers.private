@@ -41,7 +41,7 @@ submitted code reviews.
 {% if LONG_RESUME -%}
 ART ensures a successful build for each proposed change, and upon completion runs increasingly comprehensive tiers of
 test execution.
-{%- endif %}
+{%- endif -%}
 ART is a Python Flask application.
 \item
 In support of a migration to a Docker based build system, rewrote build and test code to deliver more reliable and
@@ -61,6 +61,10 @@ Before merging changes, this new system vetted all developer commits by
 running unit tests, an additional full stack build, and later tiered
 integration test runs, to supplement code reviews.
 {%- endif %}
+{% if LONG_RESUME %}
+\item
+Designed, wrote, tested, and delivered a validation tool to confirm artifacts released to public website match expectations.
+{% endif %}
 \item
 Regarded as company-wide Git expert and defacto owner of all Git services.
 {%- if LONG_RESUME %}
@@ -70,14 +74,10 @@ issues like repository corruption and authentication issues, and consulting on
 Git best practices such as repository partitioning and layout, branching
 strategies, etc.
 {%- endif %}
-\item
-Supported the cloud spend task force to reduce the company's cloud-related costs
-for compute and storage resources, achieving an annual savings of seven figures.
+{% if LONG_RESUME %}
 \item
 As part of the on-call rotation, supported all developer workflows and product branching/releases by resolving hundreds of tickets impacting individuals across the company.
-\item
-Drove recruiting activities including resume reviews, phone screens,
-and in-person interviews to expand the team.
+{% endif %}
 \end{itemize}
 
 {\bf PernixData, Inc.} -- San Jose, CA
@@ -91,12 +91,12 @@ Sole developer in the migration from a legacy Git server to Atlassian Bitbucket 
 Sole developer of several additional plugins for the Atlassian ecosystem.
 See open source section below, source available.
 \item
-Exclusively responsible for maintaining legacy build systems while contributing to a new build system.
+Designed, wrote, tested, and delivered a fix tracking tool called the Entomologizer, for which I was solely responsible.
 {% if LONG_RESUME %}
 \item
-Primary developer responsible for releases and branching activities.
+Exclusively responsible for maintaining legacy build systems while contributing to a new build system.
 \item
-Designed, wrote, tested, and delivered a fix tracking tool called the Entomologizer, for which I was solely responsible.
+Primary developer responsible for releases and branching activities.
 {% endif %}
 \end{itemize}
 
@@ -130,15 +130,12 @@ over 1000 employees.
 Provided scaled support that facilitated the exponential expansion of the company as they grew from 200 to
 over 1000 employees.
 {% endif %}
-\item
 {% if LONG_RESUME %}
-Evaluated new talent through on-site and phone interviews to directly
-contribute to the growth and success of the ITOOLS team.  I directly
-contributed to the hire of every new employee on the ITOOLS team and performed
-over 200 interviews.
-{% else %}
-Evaluated new talent, directly contributed to the hire of every new employee on the ITOOLS team, and performed
-over 200 interviews.
+\item
+Did many recruiting activities.  Helped to craft job descriptions to appeal to
+the correct candidates.  Trained others on effective interviewing techniques
+both social and technical, and personally did over 200 interviews for the
+company.
 {% endif %}
 \end{itemize}
 {\bf Amazon.com} -- Seattle, WA
@@ -156,40 +153,27 @@ which enforced unrivaled reproducibility, consistency, and dependency
 management.  The tool regularly built a codebase which exceeded 200GB and 8
 million files, split across more than 13,000 discrete packages.
 {% else %}
-Helped maintain and support build system which enforced unrivaled reproducibility, consistency, and dependency
+Helped support the build system which enforced unrivaled reproducibility, consistency, and dependency
 management.
 {% endif %}
 \item
-{% if LONG_RESUME %}
-As primary owner of the source control repository for the company,
-migrated to new hardware, upgraded software, and ensured backups were
-functioning.
-{% else %}
-Migrated source control to new hardware, upgraded software, and ensured backups were functioning.
-{% endif %}
+Performed porting and developed porting tools to assist in the migration to
+updated versions of Redhat Enterprise Linux, including 64-bit, saving
+the company over \$20M during a single year's Q4 scaling.
 \item
 Designed and implemented a distributed application which allowed internal
 customers to view logs for the build system to assist in debugging.
+{% if LONG_RESUME %}
 \item
-{% if LONG_RESUME %}
-Performed porting and developed porting tools to assist in the migration to
-updated versions of Redhat Enterprise Linux, including 64-bit, saving
-the company over 20 million dollars during a single year's Q4 scaling.
-{% else %}
-Performed porting and developed porting tools to assist in a 64-bit linux
-migration, saving the company over 20 million dollars during a single year's Q4
-scaling.
-{% endif %}
-{% if LONG_RESUME %}
+As primary owner of the source control repository for the company,
+migrated to new hardware, upgraded software, and ensured backups were
+functioning.
 \item
 Contributed to the Environment Improvement Ninjas, a skunkworks project where I
 used personal time to write tools to improve developer productivity.  The
 Environment Improvement tools are, to the best of my knowledge, still used by
 almost every developer at Amazon today.
 {% endif %}
-\item
-Evaluated newly-sourced talent through college recruiting, on-site interviews,
-and phone interviews.
 \end{itemize}
 
 \section{EDUCATION}
@@ -206,6 +190,8 @@ Computer Engineering.
 \begin{itemize}
 \item
 Git: 9 / 10, 9 years experience, extremely proficient (GitHub, Gerrit, Stash/Bitbucket, Git Internals, other SCM)
+\item
+Debian/Ubuntu Linux: 8 / 10, many years experience
 \item
 Java: 8 / 10, 10 years experience (including some Java 8/9 features)
 \item
@@ -228,8 +214,6 @@ Maven: 5 / 10, many years experience
 \item
 GNU Make: 5 / 10, many years experience
 \item
-Debian/Ubuntu Linux: 8 / 10, many years experience
-\item
 Centos/Redhat Linux: 5 / 10, many years experience
 \item
 Golang: 1 / 10, interested in learning more!
@@ -237,7 +221,7 @@ Golang: 1 / 10, interested in learning more!
 Rust: 1 / 10, interested in learning more!
 {% else %}
 \item
-I am fluent Bash/Zsh, SQL, Gradle, Maven, Make, Debian/Ubuntu Linux, Centos/Redhat Linux, and interested in learning Golang or Rust
+I am fluent Bash/Zsh, SQL, Gradle, Maven, Make, Centos/Redhat Linux, and interested in learning Golang or Rust
 {% endif %}
 \item
 {\bf What do I mean by these numbers? Read more on my blog: \\
@@ -263,12 +247,14 @@ http://qbtbuildtool.com
 https://github.com/terabyte/stash-disapproval-plugin
 {% endif -%}
 
+{% if LONG_RESUME %}
 \section{INTERESTS}
 Open Source Software, Epistemology, Classical Music, Orchestral Cello, Scientific Pursuits, Poker, Video Games
 
 \section{REFERENCES}
 Available upon request
 
+{% endif %}
 \end{resume}
 \end{document}
 
