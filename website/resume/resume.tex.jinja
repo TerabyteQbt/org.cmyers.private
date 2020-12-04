@@ -12,26 +12,62 @@
 \begin{document}
 
 \name{\Large Carl Harris Myers}
-\address{ Austin, TX $\bullet$ (206) 931-9916 $\bullet$ cmyers@cmyers.org $\bullet$ https://cmyers.org $\bullet$ Rev: {{REVISION}} }
+\address{ Sacramento, CA $\bullet$ (206) 931-9916 $\bullet$ cmyers@cmyers.org $\bullet$ https://cmyers.org $\bullet$ Rev: {{REVISION}} }
 
 \begin{resume}
 
 \section{SUMMARY}
-As a senior/principal software engineer with over 15 years of industry
-experience, I am passionate about building organizations, tools, and workflows
-that multiply productivity and delight developers freeing them to focus on
-products that delight customers.
+As a staff/principal software engineer with 20 years of industry experience, I
+am passionate about building organizations, tools, and workflows that multiply
+productivity and delight developers freeing them to focus on products that
+delight customers.
 
-{\bf NOTE: I am open to opportunities in the Austin, TX area or remote roles.
+{\bf NOTE: I am open to remote roles only for the forseeable future.
 {%- if SHORT_RESUME %}  This is an abbreviated resume to fit on two pages.  An extended version is available at http://cmyers.org/resume/resume-full.pdf
 {%- elif LONG_RESUME %}  This is an extended resume with complete work history.  An abbreviated two-page version is available at http://cmyers.org/resume/resume-short.pdf
 {%- endif -%}
 }
 
 \section{EXPERIENCE}
+{\bf Indeed, Inc.} -- Austin, TX and Remote
+\\
+\textit{Staff Software Engineer, SMB Platform} \hfill {\bf January 2020 -- Present}
+\\
+\begin{itemize}
+\item
+Helped drive company-wide effort to move projects to push-on-green.  Succeeded
+in meeting OKRs by driving rate of push-on-green deployed tickets from ~40% to
+~90%.
+\item
+Planned and executed project to enable a large legacy backend service to use
+push-on-green, which required measuring and improving test coverage, enabling
+use of hermetic integration testing via an in-house tool built on top of
+Kubernetes, streamlining the deployment pipeline, and overcoming both social
+and technical hurdles.
+{% if LONG_RESUME -%}
+\item
+Wrote and delivered a git merge driver to automatically resolve conflicts in
+build.lock files, reducing developer frustration and preventing people from
+avoiding static dependencies.
+\item
+Wrote and delivered a test running framework to run tests continuously, collect
+output and artifacts, and analyze them in order to measure pass rates, flake
+rates, and reliability.
+\item
+Participated in regular weekly Software Development Lifecycle Guild meetings
+where I contributed to long term planning for Indeed's developer workflow and
+tool ecosystem.
+{%- endif -%}
+\item
+Assisted in training and mentoring by contributing to some documentation and
+presentations around the push-on-green effort.  Was the sole contributor in
+other training like the Test Reliability Playbook and related efforts to
+improve test reliaiblity across SMB and the company as a whole.
+\end{itemize}
+
 {\bf Cloudera, Inc.} -- Palo Alto, CA and Austin, TX
 \\
-\textit{Build and Release Engineer (IC4)} \hfill {\bf May 2016 -- Present}
+\textit{Build and Release Engineer (IC4)} \hfill {\bf May 2016 -- January 2020}
 \\
 \begin{itemize}
 \item
@@ -90,9 +126,9 @@ Sole developer in the migration from a legacy Git server to Atlassian Bitbucket 
 \item
 Sole developer of several additional plugins for the Atlassian ecosystem.
 See open source section below, source available.
+{% if LONG_RESUME %}
 \item
 Designed, wrote, tested, and delivered a fix tracking tool called the Entomologizer, for which I was solely responsible.
-{% if LONG_RESUME %}
 \item
 Exclusively responsible for maintaining legacy build systems while contributing to a new build system.
 \item
@@ -144,10 +180,10 @@ company.
 \\
 \begin{itemize}
 \item
+{% if LONG_RESUME %}
 As project tech lead, worked on a localization tool which improved turn around times and reduced
 costs for string translation.
 \item
-{% if LONG_RESUME %}
 Helped maintain and support a complex build system used by over 2000 developers
 which enforced unrivaled reproducibility, consistency, and dependency
 management.  The tool regularly built a codebase which exceeded 200GB and 8
@@ -189,13 +225,15 @@ Computer Engineering.
 \section{PROGRAMMING AND TECHNOLOGY EXPERTISE}
 \begin{itemize}
 \item
-Git: 9 / 10, 9 years experience, extremely proficient (GitHub, Gerrit, Stash/Bitbucket, Git Internals, other SCM)
+Git: 9 / 10, over 10 years experience, extremely proficient (GitHub, Gerrit, Stash/Bitbucket, Git Internals, other SCM)
 \item
 Debian/Ubuntu Linux: 8 / 10, many years experience
 \item
-Java: 8 / 10, 10 years experience (including some Java 8/9 features)
+Java: 8 / 10, over 10 years experience (including some Java 8/9 features)
 \item
-Python: 6 / 10, 4 years experience (including some Python 3 features)
+Infosec: 8/10, over 10 years experience (including networking, custom firewall design, encryption, crypto currency as a user, designing security-first services, threat modeling)
+\item
+Python: 6 / 10, 6 years experience (including some Python 3 features)
 \item
 Ruby: 5 / 10, 4 years experience
 \item
@@ -204,7 +242,7 @@ Perl: 5 / 10, 3 years experience
 C++: 5 / 10, 3 years experience
 {% if LONG_RESUME %}
 \item
-Bash/Zsh: 5 / 10, many years experience
+Bash/Zsh: 5 / 10, over 10 years experience
 \item
 SQL (MySQL, PostgreSQL, Oracle): 3 / 10, many years experience
 \item
