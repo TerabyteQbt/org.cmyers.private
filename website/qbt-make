@@ -27,7 +27,7 @@ build_resume long
 rm -rf "$VE"
 
 # create timestamp file for last modified date - this isn't reproducible, by design, oh well =(
-echo "<li>Last Built On: $(date)</li>" > "$OUTPUT_ARTIFACTS_DIR/timestamp.txt"
+echo "<p>Last Built On: $(date)</p>" > "$OUTPUT_ARTIFACTS_DIR/timestamp.txt"
 
 # rename/reposition the resumes so they are in the correct path
 mv "$OUTPUT_ARTIFACTS_DIR/resume/short/resume.tex" "$OUTPUT_ARTIFACTS_DIR/resume/resume-short.tex"
