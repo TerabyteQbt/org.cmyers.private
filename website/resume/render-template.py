@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import sys
 import jinja2
@@ -22,7 +22,7 @@ if len(sys.argv) > 2:
     revision = sys.argv[3]
 
 if not vardict[vartype]:
-    print "Unknown type {}".format(vartype)
+    print("Unknown type {}".format(vartype))
     sys.exit(1)
 
 
@@ -35,4 +35,4 @@ with open(filepath, 'r') as fd:
 vardict[vartype]['REVISION'] = revision
 
 template = jinja2.Template(content)
-print template.render(**vardict[vartype])
+print(template.render(**vardict[vartype]))
