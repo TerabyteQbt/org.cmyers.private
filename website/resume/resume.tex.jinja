@@ -12,7 +12,7 @@
 \begin{document}
 
 \name{\Large Carl Harris Myers}
-\address{ Sacramento, CA $\bullet$ (206) 931-9916 $\bullet$ cmyers@cmyers.org $\bullet$ https://cmyers.org $\bullet$ Rev: {{REVISION}} }
+\address{ Roseville, CA $\bullet$ (206) 931-9916 $\bullet$ cmyers@cmyers.org $\bullet$ https://cmyers.org $\bullet$ Rev: {{REVISION}} }
 
 \begin{resume}
 
@@ -22,18 +22,30 @@ am passionate about building organizations, tools, and workflows that multiply
 productivity and delight developers freeing them to focus on products that
 delight customers.
 
-{\bf NOTE: I am open to remote roles only for the forseeable future.
+{\bf NOTE: I am open to remote roles only at this time.
 {%- if SHORT_RESUME %}  This is an abbreviated resume to fit on two pages.  An extended version is available at http://cmyers.org/resume/resume-full.pdf
 {%- elif LONG_RESUME %}  This is an extended resume with complete work history.  An abbreviated two-page version is available at http://cmyers.org/resume/resume-short.pdf
 {%- endif -%}
 }
 
 \section{EXPERIENCE}
-{\bf Indeed, Inc.} -- Austin, TX and Remote
+{\bf Indeed, Inc.} -- Austin, TX and Remote from Roseville, CA
 \\
-\textit{Staff Software Engineer, SMB Platform} \hfill {\bf January 2020 -- Present}
+\textit{Staff Software Engineer, CI/CD} \hfill {\bf July 2021 -- Present}
+\begin{itemize}
+\item
+Joined the team in July 2021.
+\end{itemize}
+\textit{Staff Software Engineer, SMB Engineering Excellence} \hfill {\bf January 2020 -- July 2021}
 \\
 \begin{itemize}
+{% if LONG_RESUME -%}
+\item
+Contributed to an effort to root-cause and fix server toast errors across the
+organization, including force-multiplying workflow improvements such as
+enabling request tracing across many services and ensuring the data was
+available in Datadog APM and Kibana.
+{%- endif -%}
 \item
 Worked across the SMB organization to move projects onto a platform for
 isolating testing environments which reduced failures due to testing
@@ -45,13 +57,13 @@ different teams at once.
 Helped drive company-wide effort to move projects to push-on-green.  Succeeded
 in meeting OKRs by driving rate of push-on-green deployed tickets from 40\% to
 90\%.
+{% if LONG_RESUME -%}
 \item
 Planned and executed project to enable a large legacy backend service to use
 push-on-green, which required measuring and improving test coverage, enabling
 use of hermetic integration testing via an in-house tool built on top of
 Kubernetes, streamlining the deployment pipeline, and overcoming both social
 and technical hurdles.
-{% if LONG_RESUME -%}
 \item
 Wrote and delivered a git merge driver to automatically resolve conflicts in
 build.lock files, reducing developer frustration and preventing people from
