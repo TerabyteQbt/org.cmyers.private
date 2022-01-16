@@ -17,7 +17,7 @@ function build_resume {
 # fetch jinja2 template engine
 VE="$OUTPUT_ARTIFACTS_DIR/.ve"
 python --version
-virtualenv -p $(which python) "$VE"
+python -m virtualenv "$VE"
 source "$VE/bin/activate"
 pip install jinja2
 
